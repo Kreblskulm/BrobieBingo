@@ -1,474 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<title>Brobie Bingo</title>
-<style>
-body {
-    background-color: #1d1c1a;
-    font-family:'Courier New', Courier, monospace;
-    color: #6e279e;
-}
-
-.grid {
-  display: grid;
-  grid-template-columns: 250px 250px 250px 250px 250px;
-  padding: 10px;
-  justify-content: center;
-}
-.bingo {
-  background-color: rgba(58, 50, 50, 0.8);
-  border: 1px solid rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  text-align: center;
-  font-size: 60px;
-  vertical-align: middle;
-}
-.item {
-  background-color: #1d1c1a;
-  border:  solid rgba(0, 0, 0, 0.8);
-  padding: 10px;
-  vertical-align: middle;
-}
-.name {
-  font-size: 27px;
-  text-align: center;
-  vertical-align: middle;
-  min-height: 100px;
-}
-a:link {
-  color: black;
-  text-decoration: none;
-}
-a:visited {
-  color: black;
-  text-decoration: none;
-}
-a:hover {
-  text-decoration: underline;
-}
-h1 {
-  font-size: 60px;
-  text-align: left;
-}
-h3 {
-  vertical-align: bottom;
-  text-align: left;
-}
-
-@media only screen and (max-width: 1026px) {
-  .grid{
-    grid-template-columns: 200px 200px 200px 200px 200px;
-    justify-content: center;
-  }
-  .name{
-    font-size: 15px;
-  }
-
-}
-</style>
+  <link rel="stylesheet" href="css/style.css">
+  <script src="js/index.js"></script>
 </head>
 
-<body>
-<div style="min-height: 120px">
-<h1>Brobie Bingo</h1>
-</div>
-<div class="grid">
+<body onload="randomize();">
+  <title>Brobie Bingo</title>
+  <div style="min-height: 120px">
+    <h1>Brobie Bingo</h1>
+  </div>
+  <div class="grid">
     <div class="bingo" id="titleB">B</div>
     <div class="bingo" id="titleI">I</div>
     <div class="bingo" id="titleN">N</div>
     <div class="bingo" id="titleG">G</div>
     <div class="bingo" id="titleO">O</div>
-    <div class="item" id="cell0"><div class="name" id="div0">1</div><button onclick="markCell0()">Mark</button></div>
-    <div class="item" id="cell1"><div class="name" id="div1">1</div><button onclick="markCell1()">Mark</button></div>
-    <div class="item" id="cell2"><div class="name" id="div2">1</div><button onclick="markCell2()">Mark</button></div>
-    <div class="item" id="cell3"><div class="name" id="div3">1</div><button onclick="markCell3()">Mark</button></div>
-    <div class="item" id="cell4"><div class="name" id="div4">1</div><button onclick="markCell4()">Mark</button></div>
-    <div class="item" id="cell5"><div class="name" id="div5">1</div><button onclick="markCell5()">Mark</button></div>
-    <div class="item" id="cell6"><div class="name" id="div6">1</div><button onclick="markCell6()">Mark</button></div>
-    <div class="item" id="cell7"><div class="name" id="div7">1</div><button onclick="markCell7()">Mark</button></div>
-    <div class="item" id="cell8"><div class="name" id="div8">1</div><button onclick="markCell8()">Mark</button></div>
-    <div class="item" id="cell9"><div class="name" id="div9">1</div><button onclick="markCell9()">Mark</button></div>
-    <div class="item" id="cell10"><div class="name" id="div10">1</div><button onclick="markCell10()">Mark</button></div>
-    <div class="item" id="cell11"><div class="name" id="div11">1</div><button onclick="markCell11()">Mark</button></div>
-    <div class="item" id="cell12"><div class="name" id="div12">1</div><button onclick="markCell12()">Mark</button></div>
-    <div class="item" id="cell13"><div class="name" id="div13">1</div><button onclick="markCell13()">Mark</button></div>
-    <div class="item" id="cell14"><div class="name" id="div14">1</div><button onclick="markCell14()">Mark</button></div>
-    <div class="item" id="cell15"><div class="name" id="div15">1</div><button onclick="markCell15()">Mark</button></div>
-    <div class="item" id="cell16"><div class="name" id="div16">1</div><button onclick="markCell16()">Mark</button></div>
-    <div class="item" id="cell17"><div class="name" id="div17">1</div><button onclick="markCell17()">Mark</button></div>
-    <div class="item" id="cell18"><div class="name" id="div18">1</div><button onclick="markCell18()">Mark</button></div>
-    <div class="item" id="cell19"><div class="name" id="div19">1</div><button onclick="markCell19()">Mark</button></div>
-    <div class="item" id="cell20"><div class="name" id="div20">1</div><button onclick="markCell20()">Mark</button></div>
-    <div class="item" id="cell21"><div class="name" id="div21">1</div><button onclick="markCell21()">Mark</button></div>
-    <div class="item" id="cell22"><div class="name" id="div22">1</div><button onclick="markCell22()">Mark</button></div>
-    <div class="item" id="cell23"><div class="name" id="div23">1</div><button onclick="markCell23()">Mark</button></div>
-    <div class="item" id="cell24"><div class="name" id="div24">1</div><button onclick="markCell24()">Mark</button></div>
-</div>
+    <div class="item" id="cell0"><div class="name" id="div0">1</div><button onclick="markCell0()">Mark</button><button onclick="singleunmarkCell0()">UnMark</button></div>
+    <div class="item" id="cell1"><div class="name" id="div1">1</div><button onclick="markCell1()">Mark</button><button onclick="singleunmarkCell1()">UnMark</button></div>
+    <div class="item" id="cell2"><div class="name" id="div2">1</div><button onclick="markCell2()">Mark</button><button onclick="singleunmarkCell2()">UnMark</button></div>
+    <div class="item" id="cell3"><div class="name" id="div3">1</div><button onclick="markCell3()">Mark</button><button onclick="singleunmarkCell3()">UnMark</button></div>
+    <div class="item" id="cell4"><div class="name" id="div4">1</div><button onclick="markCell4()">Mark</button><button onclick="singleunmarkCell4()">UnMark</button></div>
+    <div class="item" id="cell5"><div class="name" id="div5">1</div><button onclick="markCell5()">Mark</button><button onclick="singleunmarkCell5()">UnMark</button></div>
+    <div class="item" id="cell6"><div class="name" id="div6">1</div><button onclick="markCell6()">Mark</button><button onclick="singleunmarkCell6()">UnMark</button></div>
+    <div class="item" id="cell7"><div class="name" id="div7">1</div><button onclick="markCell7()">Mark</button><button onclick="singleunmarkCell7()">UnMark</button></div>
+    <div class="item" id="cell8"><div class="name" id="div8">1</div><button onclick="markCell8()">Mark</button><button onclick="singleunmarkCell8()">UnMark</button></div>
+    <div class="item" id="cell9"><div class="name" id="div9">1</div><button onclick="markCell9()">Mark</button><button onclick="singleunmarkCell9()">UnMark</button></div>
+    <div class="item" id="cell10"><div class="name" id="div10">1</div><button onclick="markCell10()">Mark</button><button onclick="singleunmarkCell10()">UnMark</button></div>
+    <div class="item" id="cell11"><div class="name" id="div11">1</div><button onclick="markCell11()">Mark</button><button onclick="singleunmarkCell11()">UnMark</button></div>
+    <div class="item" id="cell12"><div class="name" id="div12">1</div><button onclick="markCell12()">Mark</button><button onclick="singleunmarkCell12()">UnMark</button></div>
+    <div class="item" id="cell13"><div class="name" id="div13">1</div><button onclick="markCell13()">Mark</button><button onclick="singleunmarkCell13()">UnMark</button></div>
+    <div class="item" id="cell14"><div class="name" id="div14">1</div><button onclick="markCell14()">Mark</button><button onclick="singleunmarkCell14()">UnMark</button></div>
+    <div class="item" id="cell15"><div class="name" id="div15">1</div><button onclick="markCell15()">Mark</button><button onclick="singleunmarkCell15()">UnMark</button></div>
+    <div class="item" id="cell16"><div class="name" id="div16">1</div><button onclick="markCell16()">Mark</button><button onclick="singleunmarkCell16()">UnMark</button></div>
+    <div class="item" id="cell17"><div class="name" id="div17">1</div><button onclick="markCell17()">Mark</button><button onclick="singleunmarkCell17()">UnMark</button></div>
+    <div class="item" id="cell18"><div class="name" id="div18">1</div><button onclick="markCell18()">Mark</button><button onclick="singleunmarkCell18()">UnMark</button></div>
+    <div class="item" id="cell19"><div class="name" id="div19">1</div><button onclick="markCell19()">Mark</button><button onclick="singleunmarkCell19()">UnMark</button></div>
+    <div class="item" id="cell20"><div class="name" id="div20">1</div><button onclick="markCell20()">Mark</button><button onclick="singleunmarkCell20()">UnMark</button></div>
+    <div class="item" id="cell21"><div class="name" id="div21">1</div><button onclick="markCell21()">Mark</button><button onclick="singleunmarkCell21()">UnMark</button></div>
+    <div class="item" id="cell22"><div class="name" id="div22">1</div><button onclick="markCell22()">Mark</button><button onclick="singleunmarkCell22()">UnMark</button></div>
+    <div class="item" id="cell23"><div class="name" id="div23">1</div><button onclick="markCell23()">Mark</button><button onclick="singleunmarkCell23()">UnMark</button></div>
+    <div class="item" id="cell24"><div class="name" id="div24">1</div><button onclick="markCell24()">Mark</button><button onclick="singleunmarkCell24()">UnMark</button></div>
+  </div>
 
 <input id="randButton" value="Randomize" onclick="randomize();" type="button">
+
 <input id="rulesButton" value="Show Rules" onclick="showRules();" type="button">
+
 <input id="resetbutton" value="Reset Marking" onclick="reset();" type="button">
+
 <div id="rules">
-<H3>How to play:</H3>
-<ol>
-<li>Click randomize to generate a board.
-<li>Whenever streamer does the funny thing it says on the board mark it off
-</ol>
+
+  <H3>How to play:</H3>
+
+  <ol>
+    <li>Click randomize to generate a board.
+    <li>Whenever streamer does the funny thing it says on the board mark it off
+  </ol>
 </div>
-<script>
-
-var values = [["Screams in fear"],
-              ["'Sawr'"],
-              ["'I dont get it'"],
-              ["Laughs at small-brained dumb 'funny' thing"],
-              ["Any mentions breeding / pregnancy"],
-              ["Moka hits / hurts herself"],
-              ["Moka can't English"],
-              ["Moka tells a sexual story"],
-              ["'I'm not old, I'm 21'"],
-              ["'I'm old'"],
-              ["Moka derails the stream"],
-              ["Moka yells"],
-              ["'I'm Moka. Im dog'"],
-              ["TTS-chan is active"],
-              ["Any mentions of the word 'cum' or 'squirt'"],
-              ["Moka gets lost or confused in a game"],
-              ["Moka gushing over Commy"],
-              ["Any mentions of 'piss'"],
-              ["Drunk Moka"],
-              ["Moka does or says something “sus”"],
-              ["Brobie speaks"],
-              ["Bouncing booba"],
-              ["Moka fails a puzzle / challenge"],
-              ["Tired / has a headache"],
-              ["Moka forgets what she said or did"],
-              ["Moka embraces her killer instinct"],
-              ["Commands, redeems or toggles malfunction"],
-              ["Moka goes crazy / malds"],
-              ["Moka claims to be seiso or “not dirty”"],
-              ["'BRRROBIES'"],
-              ["Chat is blamed for Moka's actions"],
-              ["Hiccups"],
-              ["Misogynist Moka"],
-              ["Wardrobe Malfunction"],
-              ["Moka trash talk"],
-              ["WAYTOODANK (audio too loud)"],
-              ["Moka burps (lol never gonna happen, unless?)"],
-              ["Moka spills or chokes on drink"],
-              ["Moka mentions Grogu"],
-              ["Stream starts with 2D model"],
-              ["Stream starts with 3D model"],
-              ["Moka gives a demonstration"],          
-              ["Moka changes her appearance during stream"],
-              ["Chat beats Moka in a game or argument"],
-              ["Moka beats chat in a game or argument"],
-              ["Moka has assets attached to her model"],
-              ["Stream gets raided"],
-              ["Moka tells a joke"],
-              ["Moka drinks alcohol"],
-              ["Moka does an impression"],
-              ["Moka drinks water or tea"],
-              ["Moka wants help"],
-              ["Moka's hungry"],
-              ["Moka sings / hums"],
-              ["Moka apologises for something"],
-              ["Moka tells a nonsexual story"],
-              ["Any mentions of 'dick' or 'balls'"],
-              ["Feet"],
-              ["Muted mic / audio"]
-              ["Moka whispers or speaks softly "],
-              ["Chat explains a joke / meme to Moka"]];
-
-
-function update() {
-    var i;
-    for (i = 0; i < values.length; i++) {
-        var cell = document.getElementById("div"+i);
-        cell.firstChild.nodeValue = values[i][0];
-        
-    }
-}
-
-function randomize() {
-    var num = values.length;
-    var middle = Math.floor(values.length/2);
-    
-    for(i=0; i<(5*num); i++) {
-        var src = Math.floor(Math.random() * num);
-        var dst = Math.floor(Math.random() * num);
-
-        if( src!=middle && dst!=middle) {
-            var tmp = values[src];
-            values[src] = values[dst];
-            values[dst] = tmp;
-        }
-    }
-    reset();
-    update();
-    
-}
-
-
-  function reset() {
-  var element = document.getElementById("cell0");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell1();
-}
-function unmarkCell1() {
-  var element = document.getElementById("cell1");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell2();
-}
-function unmarkCell2() {
-  var element = document.getElementById("cell2");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell3();
-}
-function unmarkCell3() {
-  var element = document.getElementById("cell3");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell4();
-}
-function unmarkCell4() {
-  var element = document.getElementById("cell4");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell5();
-}
-function unmarkCell5() {
-  var element = document.getElementById("cell5");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell6();
-}
-function unmarkCell6() {
-  var element = document.getElementById("cell6");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell7();
-}
-function unmarkCell7() {
-  var element = document.getElementById("cell7");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell8();
-}
-function unmarkCell8() {
-  var element = document.getElementById("cell8");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell9();
-}
-function unmarkCell9() {
-  var element = document.getElementById("cell9");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell10();
-}
-function unmarkCell10() {
-  var element = document.getElementById("cell10");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell11();
-}
-function unmarkCell11() {
-  var element = document.getElementById("cell11");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell12();
-}
-function unmarkCell12() {
-  var element = document.getElementById("cell12");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell13();
-}
-function unmarkCell13() {
-  var element = document.getElementById("cell13");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell14();
-}
-function unmarkCell14() {
-  var element = document.getElementById("cell14");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell15();
-}
-function unmarkCell15() {
-  var element = document.getElementById("cell15");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell16();
-}
-function unmarkCell16() {
-  var element = document.getElementById("cell16");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell17();
-}
-function unmarkCell17() {
-  var element = document.getElementById("cell17");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell18();
-}
-function unmarkCell18() {
-  var element = document.getElementById("cell18");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell19();
-}
-function unmarkCell19() {
-  var element = document.getElementById("cell19");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell20();
-}
-function unmarkCell20() {
-  var element = document.getElementById("cell20");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell21();
-}
-function unmarkCell21() {
-  var element = document.getElementById("cell21");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell22();
-}
-function unmarkCell22() {
-  var element = document.getElementById("cell22");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell23();
-}
-function unmarkCell23() {
-  var element = document.getElementById("cell23");
-  element.style.backgroundColor = "#1d1c1a";
-  unmarkCell24();
-}
-function unmarkCell24() {
-  var element = document.getElementById("cell24");
-  element.style.backgroundColor = "#1d1c1a";
-  update();
-}
-
-
-
-
-function showRules() {
-    var ruleVis = document.getElementById("rules").style.visibility;
-    var rulesText = document.getElementById("rulesButton").value;
-    if( ruleVis == "hidden" ) {
-        ruleVis = "visible";
-        rulesText = "Hide Rules";
-    } else {
-        ruleVis = "hidden";
-        rulesText = "Show Rules";
-    }
-    document.getElementById("rules").style.visibility = ruleVis;
-    document.getElementById("rulesButton").value = rulesText;
-}
-
-function markCell0() {
-  var element = document.getElementById("cell0");
-  element.style.backgroundColor = "#008080";
-}
-function markCell1() {
-  var element = document.getElementById("cell1");
-  element.style.backgroundColor = "#008080";
-}
-function markCell2() {
-  var element = document.getElementById("cell2");
-  element.style.backgroundColor = "#008080";
-}
-function markCell3() {
-  var element = document.getElementById("cell3");
-  element.style.backgroundColor = "#008080";
-}
-function markCell4() {
-  var element = document.getElementById("cell4");
-  element.style.backgroundColor = "#008080";
-}
-function markCell5() {
-  var element = document.getElementById("cell5");
-  element.style.backgroundColor = "#008080";
-}
-function markCell6() {
-  var element = document.getElementById("cell6");
-  element.style.backgroundColor = "#008080";
-}
-function markCell7() {
-  var element = document.getElementById("cell7");
-  element.style.backgroundColor = "#008080";
-}
-function markCell8() {
-  var element = document.getElementById("cell8");
-  element.style.backgroundColor = "#008080";
-}
-function markCell9() {
-  var element = document.getElementById("cell9");
-  element.style.backgroundColor = "#008080";
-}
-function markCell10() {
-  var element = document.getElementById("cell10");
-  element.style.backgroundColor = "#008080";
-}
-function markCell11() {
-  var element = document.getElementById("cell11");
-  element.style.backgroundColor = "#008080";
-}
-function markCell12() {
-  var element = document.getElementById("cell12");
-  element.style.backgroundColor = "#008080";
-}
-function markCell13() {
-  var element = document.getElementById("cell13");
-  element.style.backgroundColor = "#008080";
-}
-function markCell14() {
-  var element = document.getElementById("cell14");
-  element.style.backgroundColor = "#008080";
-}
-function markCell15() {
-  var element = document.getElementById("cell15");
-  element.style.backgroundColor = "#008080";
-}
-function markCell16() {
-  var element = document.getElementById("cell16");
-  element.style.backgroundColor = "#008080";
-}
-function markCell17() {
-  var element = document.getElementById("cell17");
-  element.style.backgroundColor = "#008080";
-}
-function markCell18() {
-  var element = document.getElementById("cell18");
-  element.style.backgroundColor = "#008080";
-}
-function markCell19() {
-  var element = document.getElementById("cell19");
-  element.style.backgroundColor = "#008080";
-}
-function markCell20() {
-  var element = document.getElementById("cell20");
-  element.style.backgroundColor = "#008080";
-}
-function markCell21() {
-  var element = document.getElementById("cell21");
-  element.style.backgroundColor = "#008080";
-}
-function markCell22() {
-  var element = document.getElementById("cell22");
-  element.style.backgroundColor = "#008080";
-}
-function markCell23() {
-  var element = document.getElementById("cell23");
-  element.style.backgroundColor = "#008080";
-}
-function markCell24() {
-  var element = document.getElementById("cell24");
-  element.style.backgroundColor = "#008080";
-}
-
-document.getElementById("rules").style.visibility = "hidden";
-window.onbeforeprint = function() {
-    document.getElementById("randButton").style.visibility = "hidden";
-    document.getElementById("rulesButton").style.visibility = "hidden";
-    document.getElementById("printButton").style.visibility = "hidden";
-};
-window.onafterprint = function() {
-    document.getElementById("randButton").style.visibility = "visible";
-    document.getElementById("rulesButton").style.visibility = "visible";
-    document.getElementById("printButton").style.visibility = "visible";
-};
-
-
-randomize();
-update();
-
-//--></script>
 </body>
 </html>
