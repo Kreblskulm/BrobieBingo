@@ -1,0 +1,62 @@
+body {
+    background-color: #1d1c1a;
+    font-family:'Courier New', Courier, monospace;
+    color: #6e279e;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 250px 250px 250px 250px 250px;
+  padding: 10px;
+  justify-content: center;
+}
+.bingo {
+  background-color: rgba(58, 50, 50, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  text-align: center;
+  font-size: 60px;
+  vertical-align: middle;
+}
+.item {
+  background-color: #1d1c1a;
+  border:  solid rgba(0, 0, 0, 0.8);
+  padding: 10px;
+  vertical-align: middle;
+}
+.name {
+  font-size: 27px;
+  text-align: center;
+  vertical-align: middle;
+  min-height: 100px;
+}
+a:link {
+  color: black;
+  text-decoration: none;
+}
+a:visited {
+  color: black;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+h1 {
+  font-size: 60px;
+  text-align: left;
+}
+h3 {
+  vertical-align: bottom;
+  text-align: left;
+}
+
+@media only screen and (max-width: 1026px) {
+  .grid{
+    grid-template-columns: 200px 200px 200px 200px 200px;
+    justify-content: center;
+  }
+  .name{
+    font-size: 15px;
+  }
+
+}
